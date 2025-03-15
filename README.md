@@ -38,7 +38,7 @@ Ensure you have the following installed:
 2. Place the target binary (`vuln`) in the Desktop directory or modify the `TARGET_BINARY` path in the script.
 3. Run the script:
    ```bash
-   python afl_gemini.py
+   python3 apps.py
    ```
 4. The script will:
    - Check for an existing input corpus.
