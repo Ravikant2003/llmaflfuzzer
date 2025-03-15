@@ -55,6 +55,25 @@ Ensure you have the following installed:
 │-- output_dir/     # Directory for AFL results
 ```
 
+
+## Important update:
+
+In this part of the code:
+
+def generate_fuzz_input(seed_input):
+    """Uses Gemini AI to generate a fuzzing input."""
+    try:
+        response = model.generate_content(f"Generate a fuzzing input based on: {seed_input}")
+        return response.text.strip() if response.text else None
+    except Exception as e:
+        print(f"Error generating fuzz input: {e}")
+        return None
+
+For this text : " Generate a fuzzing input based on: {seed_input}" , It may happen that it can give you a whole answer like response along with the new mutated fuzzing input, hence modify this prompt in a way that you only get mutated seed input and nothing else.
+
+This prompt is just like the prompt which we give in GPT mmodels like ChatGPT and CoPilot.
+
+
 ## Notes
 - Ensure AFL is properly set up and working before running the script.
 - The Gemini AI API might have rate limits, so consider optimizing requests accordingly.
